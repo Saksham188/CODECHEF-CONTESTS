@@ -1,0 +1,40 @@
+https://www.codechef.com/START23C/problems/SUBARRAYXOR
+
+Next element will be XOR of prev ele with this ele.
+
+##################################
+SOL:
+##################################
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int>ans(1e5 +10);
+
+void Process()
+{
+    ans[1]=1;
+    for(int i=2;i<1e5+10 ;i++)
+    {
+        ans[i]=i^(i-1);
+    }
+    
+ 
+}
+
+int main() {
+    int T;
+    cin>>T;
+    Process();
+    while(T--)
+    {
+        int N;
+        cin>>N;
+        
+        for(int i=1;i<=N;i++)
+        cout<<ans[i]<<" ";
+        
+        cout<<endl;
+    }
+	// your code goes here
+	return 0;
+}
