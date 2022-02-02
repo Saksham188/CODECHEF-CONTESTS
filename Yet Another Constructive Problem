@@ -1,0 +1,31 @@
+https://www.codechef.com/START24C/problems/ORANDCON/
+
+
+###########################
+CODE:
+###########################
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin>>T;
+    
+    while(T--)
+    {
+        long long int X;
+        cin>>X;
+        
+    ///here we see that till 27 bit we have ans as x ,so we set 28 bit as 1 in 1ans and 29th bit as 1 in 2nd.
+        
+        int a,b,c;
+        a=b=c=X;
+        
+        b=X|(1<<28); ///here we set 28th bit as 1 and take XOR with X
+        c=X|(1<<29);    /// here we set 29th bit as 1 and take XOR with X.
+    
+        cout<<a<<" "<<b<<" "<<c<<"\n";
+    }
+	// your code goes here
+	return 0;
+}
