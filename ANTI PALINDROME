@@ -1,0 +1,86 @@
+https://www.codechef.com/START24C/problems/ANTI_PAL
+
+###################################################
+Logic: 
+1.If n is odd or count of frequency of any letter >N/2 then ans is false as we will have some repeating elements in other half also.
+2. Else use counting sort and fill ans string in sorted order of alphabets and reverse n/2 elements .
+###################################################
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int T;
+    
+    cin>>T;
+    while(T--)
+    {
+        int N;
+        cin>>N;
+        
+        string S;
+        cin>>S;
+        
+        if(N%2==1)
+          cout<<"NO\n";
+        else
+        {
+            vector<int>count(26);
+            
+            for(int i=0;i<N;i++)
+            {
+                count[S[i]-'a']++;
+            }
+            int maxi=*max_element(count.begin(),count.end()); 
+             
+            if(maxi>N/2)
+            {
+               cout<<"NO\n";
+               continue;   
+            }
+            
+            cout<<"YES\n";
+            
+            string S="";
+            for(int i=0;i<26;i++)
+            {
+                while(count[i]--)
+                {
+                    S+='a'+i;
+                }
+            }
+
+            reverse(S.begin(),S.begin() +S.size()/2);
+            
+            cout<<S<<endl;
+        }
+    }
+	// your code goes here
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
