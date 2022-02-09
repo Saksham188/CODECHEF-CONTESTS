@@ -1,0 +1,41 @@
+https://www.codechef.com/START25C/problems/TOWERTOP
+
+####################################
+CODE:
+####################################
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long int T;
+    cin>>T;
+    
+    while(T--)
+    {
+        long long int X,M;
+        cin>>X>>M;
+        // We will have our towers as 1 1 2 4 8 16.... and we need to find till we get sum<=X 
+        
+        long long int NumTower=ceil(log2(X))+1;
+        
+        // If number of operations given are less than req for creating tower we get ans=0.
+        if(NumTower>M)
+        {
+            cout<<"0\n";
+        }
+        else
+           cout<<M-NumTower+1<<endl;
+    // if M is greater then do M-NumTower+1 for final ans as if m greater we get 1 tower and M-NumTower back.
+    }
+	// your code goes here
+	return 0;
+}
+
+
+
+
+
+
+
+
