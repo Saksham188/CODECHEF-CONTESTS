@@ -1,0 +1,67 @@
+https://www.codechef.com/FEB221C/problems/BINBASBASIC
+
+##############################
+CODE:
+##############################
+LOGIC:
+//first count unmatched bits.
+  ///here we check 3 conditions,if our unmatched bits is >K then not possible.
+        ///else if we have count<K ie we have K-count moves left now.Now we have two cases
+        ///if length of string is odd then we can use these K-count on mid ele and string remains palindrome
+        ///eg we have 10101 and K=8 ,now here count=0 so we use8 operations on mid as 10001 and 10101 is also
+        ///palindrome. and if our length of string is even.then if we have even operation left then only we can make
+        // palindrome else no. eg 101010 ,k=5,left=5, here  after 1 swap we get 101110 which is not palin,so after next swap
+        ///we again get 101010 which is palindrome.
+        
+***********************************
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        int N,K,count=0;
+        cin>>N>>K;
+        
+        string S;
+        cin>>S;
+        for(int i=0;i<N/2;i++)
+        {
+            if(S[i]!=S[N-i-1])
+               count++;
+        }
+        
+      
+        if(count>K)
+          cout<<"NO\n";
+        else
+        {
+            
+            if(N%2==1)
+                cout<<"YES\n";
+            else
+            {
+                if((K-count)%2==0)
+                   cout<<"YES\n";
+                else
+                   cout<<"NO\n";
+            }
+        }
+      
+    }
+	// your code goes here
+	return 0;
+}
+
+
+
+
+
+
+
+
