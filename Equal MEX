@@ -1,0 +1,53 @@
+https://www.codechef.com/START25C/problems/EQUALMEX/
+
+
+#####################################################
+CODE:
+#####################################################
+///Logic: First calc freq of each element and then traverse from 0 to N and if frequency of ele is 0 then that ele is missing,if frequency is 1 then its present in
+/// only 1 half so ans will be false always.else we check for each val if its freq >=2        
+  
+************************************************************  
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int T;
+    cin>>T;
+    
+    while(T--)
+    {
+        int N;
+        cin>>N;
+        
+        int arr[2*N];
+        map<int,int>mp;
+        for(int i=0;i<2*N;i++)
+        {
+            cin>>arr[i];
+            mp[arr[i]]++;
+        }
+///Logic: Here if frequency of ele is 0 then that ele is missing,if frequency is 1 then its present in
+/// only 1 half so ans will be false always.else we check for each val if its freq >=2        
+        
+        bool ans=true;
+        for(int i=0;i<N;i++)
+        {
+            if(mp[i]==0)
+                break;
+            else if(mp[i]==1)
+            {
+                ans=false;
+            }
+        }
+        if(ans)
+        {
+            cout<<"YES\n";
+        }
+        else
+            cout<<"NO\n";
+        
+    }
+	// your code goes here
+	return 0;
+}
