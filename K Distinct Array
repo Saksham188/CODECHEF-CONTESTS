@@ -1,0 +1,46 @@
+https://www.codechef.com/START25C/problems/DISTK
+
+
+######################################
+CODE:
+#######################################
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        long long int N,K;
+        cin>>N>>K;
+        
+        vector<long long int>ans;
+        long long int count=0;
+        K=K-N;
+        
+        ///here first fill all unique elements till K-N length and then for next remaining elements we need
+        //to fill it with count-K th element.
+        while(K>=count)
+        {
+            ans.push_back(count+1);
+            K-=count;
+            count++;
+        } 
+        
+        while(ans.size()<N)
+        {
+            ans.push_back(count-K);
+            
+        }
+       
+       for(auto it:ans)
+       {
+           cout<<it<<" ";
+       }
+       cout<<endl;
+    }
+	// your code goes here
+	return 0;
+}
