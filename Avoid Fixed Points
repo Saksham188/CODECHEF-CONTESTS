@@ -1,0 +1,42 @@
+Avoid Fixed Points Problem Code: NOFIX
+
+https://www.codechef.com/FEB222C/problems/NOFIX
+
+
+######################################
+CODE:
+#######################################
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin>>T;
+    
+    while(T--)
+    {
+       int N;
+       cin>>N;
+       
+       int Arr[N+1];
+       for (int i = 1; i <= N; i++) {
+           cin>>Arr[i];
+       }
+       int count=0;
+        for (int i = 1; i <= N; i++) 
+        {
+            if(Arr[i]==i+count)
+            {
+                count++;
+            }
+        }
+        
+        std::cout << count << std::endl;
+       
+       
+    }
+	// your code goes here
+	return 0;
+}
+
